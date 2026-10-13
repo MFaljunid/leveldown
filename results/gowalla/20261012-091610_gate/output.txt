@@ -1,0 +1,38 @@
+run folder: F:\php project\leveldown\results\gowalla\20261012-091610_gate
+gowalla: users=29858 items=40988  temporal LOO, FULL RANKING, k=10
+
+== tuning on the validation item
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0389
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0388
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0192
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0432
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0433
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0407
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0456
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0457
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0453
+  -> selected ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10} (val NDCG@10 0.0457)
+  ease skipped: 40988 items > ease_max_items (12000)
+  knn {'k': 50}: val NDCG@10 0.0431
+  knn {'k': 200}: val NDCG@10 0.0448
+  -> selected knn {'k': 200} (val NDCG@10 0.0448)
+
+== TEST by activity group (0 = least active)
+ group  #train  test-item log pop  test in top-10%
+     0     9.4              3.570            35.4%
+     1    14.6              3.567            35.8%
+     2    25.1              3.565            35.2%
+     3    80.5              3.565            36.3%
+
+model        HR@k   NDCG@k   NDCG g0   NDCG g1   NDCG g2   NDCG g3
+itempop    0.0217   0.0101    0.0098    0.0101    0.0114    0.0091
+ials       0.0778   0.0415    0.0515    0.0434    0.0408    0.0302
+knn        0.0733   0.0390    0.0519    0.0416    0.0372    0.0252
+
+== decomposition of the gap (least- vs most-accurate group) by test-item popularity
+  ials NDCG  group 3 - group 0: raw -0.0212 | adj -0.0210 (share 1.4% [-10.4%, 10.6%]) | matched -0.0198 (ratio 93%, coverage 100%)
+  ials HR    group 3 - group 0: raw -0.0376 | adj -0.0371 (share 1.3% [-10.3%, 10.2%]) | matched -0.0366 (ratio 97%, coverage 100%)
+  knn  NDCG  group 3 - group 0: raw -0.0267 | adj -0.0266 (share 0.3% [-1.7%, 2.1%]) | matched -0.0265 (ratio 99%, coverage 100%)
+  knn  HR    group 3 - group 0: raw -0.0458 | adj -0.0457 (share 0.2% [-1.6%, 2.0%]) | matched -0.0457 (ratio 100%, coverage 100%)
+
+== C2' DECISION (ials, NDCG@10): beats ItemPop True | share 1.4% (need >= 40%) | matched/raw 93% (need <= 50%)  ->  NOT CONFIRMED

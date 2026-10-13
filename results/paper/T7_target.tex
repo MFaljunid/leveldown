@@ -1,0 +1,13 @@
+\begin{tabular}{llrrrr}
+\toprule
+Dataset & Model & Raw gap & Adjusted & Share explained [95\% CI] & Matched / raw \\
+\midrule
+ML-100K & iALS & -0.0853 & -0.0575 & 33\% [19\%, 59\%] & 56\% \\
+ML-100K & EASE & -0.0927 & -0.0604 & 35\% [21\%, 59\%] & 57\% \\
+ML-1M & iALS & -0.0596 & -0.0385 & 35\% [29\%, 44\%] & 36\% \\
+ML-1M & EASE & -0.0670 & -0.0461 & 31\% [26\%, 39\%] & 46\% \\
+ML-1M & ItemKNN & -0.0479 & -0.0226 & 53\% [43\%, 67\%] & 12\% \\
+Gowalla & iALS & -0.0212 & -0.0210 & 1\% [-10\%, 11\%] & 93\% \\
+Gowalla & ItemKNN & -0.0267 & -0.0266 & 0\% [-2\%, 2\%] & 99\% \\
+\bottomrule
+\end{tabular}

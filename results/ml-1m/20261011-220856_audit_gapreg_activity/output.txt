@@ -1,0 +1,19 @@
+run folder: F:\php project\leveldown\results\ml-1m\20261011-220856_audit_gapreg_activity
+ml-1m: users=6040 items=3706  groups=activity (act0: 1510, act1: 1510, act2: 1510, act3: 1510)  random tie-breaking, FULL RANKING, NDCG@10
+
+== tuning base BPR-MF on validation
+  bpr {'dim': 64, 'lr': 0.05, 'reg': 0.0001, 'epochs': 20, 'batch': 4096}: val NDCG@10 0.0314
+  bpr {'dim': 64, 'lr': 0.05, 'reg': 0.0001, 'epochs': 40, 'batch': 4096}: val NDCG@10 0.0314
+  bpr {'dim': 64, 'lr': 0.05, 'reg': 0.001, 'epochs': 20, 'batch': 4096}: val NDCG@10 0.0308
+  bpr {'dim': 64, 'lr': 0.05, 'reg': 0.001, 'epochs': 40, 'batch': 4096}: val NDCG@10 0.0325
+  -> selected bpr {'dim': 64, 'lr': 0.05, 'reg': 0.001, 'epochs': 40, 'batch': 4096} (val NDCG@10 0.0325)
+
+===== bpr {'dim': 64, 'lr': 0.05, 'reg': 0.001, 'epochs': 40, 'batch': 4096}: advantaged group act0, disadvantaged group act3 (validation)
+lambda  val all  val gaptest act0test act1test act2test act3 test all      gap  closure    d_adv    d_dis LD share
+     0   0.0325  -0.0446   0.0505   0.0357   0.0235   0.0176   0.0318  -0.0329  +0.0000  +0.0000  +0.0000        -
+  0.05   0.0243  -0.0154   0.0337   0.0367   0.0226   0.0176   0.0276  -0.0161  +0.0168  -0.0168  -0.0000     100%
+   0.1   0.0239  -0.0145   0.0298   0.0293   0.0221   0.0143   0.0239  -0.0155  +0.0174  -0.0207  -0.0033     100%
+   0.2   0.0211  -0.0157   0.0268   0.0169   0.0170   0.0142   0.0187  -0.0127  +0.0202  -0.0237  -0.0034     100%
+   0.5   0.0109  -0.0092   0.0141   0.0115   0.0057   0.0076   0.0097  -0.0064  +0.0264  -0.0364  -0.0100     100%
+selected lambda = 0 (smallest validation gap with >= 95% of base validation NDCG)
+   test: d_adv +0.0000 [+0.0000, +0.0000] | d_dis +0.0000 [+0.0000, +0.0000] | d_all +0.0000 [+0.0000, +0.0000] | gap -0.0329 -> -0.0329  ->  NO NARROWING

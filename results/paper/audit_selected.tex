@@ -1,0 +1,21 @@
+\begin{tabular}{lllllrrrcc}
+\toprule
+Dataset & Intervention & Attr. & Model & Sel. & $\Delta$adv & $\Delta$dis & $\Delta$all & Verdicts & LD share \\
+\midrule
+ML-100K & Loss-gap penalty & activity & BPR-MF & 0,0.05,0 & -0.0025 $\pm$ 0.0043 & -0.0011 $\pm$ 0.0019 & -0.0015 $\pm$ 0.0026 & none/n.s./none & 82\%--100\% \\
+ML-100K & Loss-gap penalty & gender & BPR-MF & 0 & +0.0000 & +0.0000 & +0.0000 & none & 0\% \\
+ML-100K & Reweighting & activity & EASE & 1 & +0.0000 & +0.0000 & +0.0000 & none & - \\
+ML-100K & Reweighting & activity & iALS & 1,2,1 & -0.0006 $\pm$ 0.0010 & -0.0021 $\pm$ 0.0036 & -0.0009 $\pm$ 0.0016 & none/none/none & 100\% \\
+ML-100K & Reweighting & gender & EASE & 4 & -0.0041 & -0.0002 & -0.0030 & none & - \\
+ML-100K & Reweighting & gender & iALS & 1 & +0.0000 & +0.0000 & +0.0000 & none & - \\
+ML-1M & Loss-gap penalty & activity & BPR-MF & 0,0,0 & +0.0000 $\pm$ 0.0000 & +0.0000 $\pm$ 0.0000 & +0.0000 $\pm$ 0.0000 & none/none/none & 92\%--100\% \\
+ML-1M & Loss-gap penalty & gender & BPR-MF & 0.1 & -0.0004 & +0.0024 & +0.0004 & none & 100\% \\
+ML-1M & Reweighting & activity & EASE & 1 & +0.0000 & +0.0000 & +0.0000 & none & 100\% \\
+ML-1M & Reweighting & activity & iALS & 8,2,2 & -0.0078 $\pm$ 0.0043 & -0.0019 $\pm$ 0.0014 & -0.0017 $\pm$ 0.0017 & LD/LD/LD & 98\%--100\% \\
+ML-1M & Reweighting & gender & EASE & 1 & +0.0000 & +0.0000 & +0.0000 & none & 100\% \\
+ML-1M & Reweighting & gender & iALS & 1 & +0.0000 & +0.0000 & +0.0000 & none & 100\% \\
+Gowalla & Loss-gap penalty & activity & BPR-MF & 0.1,0.2,0.2 & -0.0050 $\pm$ 0.0023 & -0.0013 $\pm$ 0.0002 & -0.0020 $\pm$ 0.0007 & LD/LD/LD & 100\% \\
+Gowalla & Reweighting & activity & iALS & 16,8,16 & -0.0042 $\pm$ 0.0003 & -0.0017 $\pm$ 0.0007 & -0.0029 $\pm$ 0.0005 & LD/LD/LD & 100\% \\
+Gowalla & Reweighting & activity & ItemKNN & 2 & -0.0020 & -0.0003 & -0.0015 & LD & 100\% \\
+\bottomrule
+\end{tabular}

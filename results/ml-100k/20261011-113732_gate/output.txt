@@ -1,0 +1,39 @@
+run folder: F:\php project\leveldown\results\ml-100k\20261011-113732_gate
+ml-100k: users=943 items=1682  temporal LOO, FULL RANKING, k=10
+
+== tuning on the validation item
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0615
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0626
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0355
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0597
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0589
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0475
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0521
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0583
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0583
+  -> selected ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10} (val NDCG@10 0.0626)
+  ease {'lam': 50.0}: val NDCG@10 0.0638
+  ease {'lam': 200.0}: val NDCG@10 0.0670
+  ease {'lam': 500.0}: val NDCG@10 0.0671
+  ease {'lam': 2000.0}: val NDCG@10 0.0599
+  -> selected ease {'lam': 500.0} (val NDCG@10 0.0671)
+
+== TEST by activity group (0 = least active)
+ group  #train  test-item log pop  test in top-10%
+     0    22.9              4.385            28.8%
+     1    45.2              4.463            30.1%
+     2   100.3              4.409            29.2%
+     3   248.3              4.041            19.1%
+
+model        HR@k   NDCG@k   NDCG g0   NDCG g1   NDCG g2   NDCG g3
+itempop    0.0498   0.0249    0.0231    0.0181    0.0286    0.0298
+ials       0.0817   0.0360    0.0529    0.0498    0.0330    0.0082
+ease       0.0806   0.0365    0.0425    0.0554    0.0379    0.0102
+
+== decomposition of the gap (least- vs most-accurate group) by test-item popularity
+  ials NDCG  group 3 - group 0: raw -0.0447 | adj -0.0353 (share 21.1% [9.3%, 40.2%]) | matched -0.0282 (ratio 63%, coverage 100%)
+  ials HR    group 3 - group 0: raw -0.1101 | adj -0.0890 (share 19.2% [8.2%, 35.1%]) | matched -0.0694 (ratio 63%, coverage 100%)
+  ease NDCG  group 3 - group 1: raw -0.0452 | adj -0.0305 (share 32.5% [17.3%, 63.1%]) | matched -0.0249 (ratio 55%, coverage 100%)
+  ease HR    group 3 - group 1: raw -0.0804 | adj -0.0487 (share 39.4% [20.6%, 83.3%]) | matched -0.0425 (ratio 53%, coverage 100%)
+
+== C2' DECISION (ials, NDCG@10): beats ItemPop True | share 21.1% (need >= 40%) | matched/raw 63% (need <= 50%)  ->  NOT CONFIRMED

@@ -1,0 +1,35 @@
+run folder: F:\php project\leveldown\results\ml-1m\20261011-194653_ugf_gender
+ml-1m: users=6040  group A = male (4331 users) vs rest, K=10, N=100, random tie-breaking, full ranking
+
+== tuning base models (as run_gate.py)
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0483
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0492
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0356
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0442
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0447
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0437
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0391
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0386
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0395
+  -> selected ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10} (val NDCG@10 0.0492)
+  ease {'lam': 50.0}: val NDCG@10 0.0518
+  ease {'lam': 200.0}: val NDCG@10 0.0540
+  ease {'lam': 500.0}: val NDCG@10 0.0533
+  ease {'lam': 2000.0}: val NDCG@10 0.0527
+  -> selected ease {'lam': 200.0} (val NDCG@10 0.0540)
+
+===== ials: base test HR@10 male 0.0921 rest 0.0831 overall 0.0896; better-served group: male (test), rest (validation)
+  ORACLE (test labels, as public code)
+     HR@10: better 0.0921->0.0910  worse 0.0831->0.0866  overall 0.0896->0.0897 (gap +0.0090 -> +0.0044) | NDCG overall 0.0430->0.0431
+     d_better -0.0012 [-0.0023, -0.0002] | d_worse +0.0035 [+0.0012, +0.0070] | d_all +0.0002 [-0.0008, +0.0013]  ->  MIXED
+  LEAK-FREE (validation; better-served lists skip top 0)
+     HR@10: better 0.0831->0.0831  worse 0.0921->0.0921  overall 0.0896->0.0896 (gap -0.0090 -> -0.0090) | NDCG overall 0.0430->0.0430
+     d_better +0.0000 [+0.0000, +0.0000] | d_worse +0.0000 [+0.0000, +0.0000] | d_all +0.0000 [+0.0000, +0.0000]  ->  NO NARROWING
+
+===== ease: base test HR@10 male 0.1011 rest 0.0872 overall 0.0972; better-served group: male (test), rest (validation)
+  ORACLE (test labels, as public code)
+     HR@10: better 0.1011->0.1000  worse 0.0872->0.0930  overall 0.0972->0.0980 (gap +0.0139 -> +0.0069) | NDCG overall 0.0466->0.0468
+     d_better -0.0012 [-0.0023, -0.0002] | d_worse +0.0059 [+0.0023, +0.0094] | d_all +0.0008 [-0.0005, +0.0022]  ->  MIXED
+  LEAK-FREE (validation; better-served lists skip top 0)
+     HR@10: better 0.0872->0.0872  worse 0.1011->0.1011  overall 0.0972->0.0972 (gap -0.0139 -> -0.0139) | NDCG overall 0.0466->0.0466
+     d_better +0.0000 [+0.0000, +0.0000] | d_worse +0.0000 [+0.0000, +0.0000] | d_all +0.0000 [+0.0000, +0.0000]  ->  NO NARROWING

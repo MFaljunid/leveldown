@@ -1,0 +1,19 @@
+run folder: F:\php project\leveldown\results\gowalla\20261012-093703_protocol
+
+===== tie-breaking: item  (gowalla: users=29858 items=40988)
+  iALS selected {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}
+  -- grouping activity
+     model   protocol     overall     act0     act1     act2     act3   worst   best      gap  rel.gap
+     ials    full          0.0415   0.0515   0.0434   0.0408   0.0302    act3   act0   0.0212      70%
+     ials    sampled99     0.6634   0.6803   0.6743   0.6630   0.6361    act3   act0   0.0442       7%
+     itempop full          0.0101   0.0098   0.0101   0.0114   0.0091    act3   act2   0.0024      26%
+     itempop sampled99     0.2164   0.2177   0.2168   0.2159   0.2152    act3   act0   0.0026       1%
+
+===== tie-breaking: random  (gowalla: users=29858 items=40988)
+  iALS selected {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}
+  -- grouping activity
+     model   protocol     overall     act0     act1     act2     act3   worst   best      gap  rel.gap
+     ials    full          0.0415   0.0515   0.0434   0.0408   0.0302    act3   act0   0.0212      70%
+     ials    sampled99     0.6634   0.6803   0.6743   0.6630   0.6361    act3   act0   0.0442       7%
+     itempop full          0.0101   0.0098   0.0101   0.0114   0.0091    act3   act2   0.0024      26%
+     itempop sampled99     0.2164   0.2177   0.2168   0.2159   0.2152    act3   act0   0.0026       1%

@@ -1,0 +1,39 @@
+run folder: F:\php project\leveldown\results\ml-1m\20261011-192707_audit_reweight_gender
+ml-1m: users=6040 items=3706  groups=gender (F: 1709, M: 4331)  random tie-breaking, FULL RANKING, NDCG@10
+
+== tuning base models (as run_gate.py)
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0483
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0492
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0356
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0442
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0447
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0437
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0391
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0386
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0395
+  -> selected ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10} (val NDCG@10 0.0492)
+  ease {'lam': 50.0}: val NDCG@10 0.0518
+  ease {'lam': 200.0}: val NDCG@10 0.0540
+  ease {'lam': 500.0}: val NDCG@10 0.0533
+  ease {'lam': 2000.0}: val NDCG@10 0.0527
+  -> selected ease {'lam': 200.0} (val NDCG@10 0.0540)
+
+===== ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}: advantaged group F, disadvantaged group M (validation)
+    w  val all  val gap   test F   test M test all      gap  closure    d_adv    d_dis LD share
+    1   0.0492  -0.0033   0.0395   0.0444   0.0430  +0.0049  +0.0000  +0.0000  +0.0000        -
+    2   0.0485  -0.0046   0.0392   0.0438   0.0425  +0.0046  +0.0003  -0.0004  -0.0007     100%
+    4   0.0485  -0.0048   0.0394   0.0435   0.0423  +0.0041  +0.0008  -0.0001  -0.0009     100%
+    8   0.0486  -0.0059   0.0409   0.0438   0.0429  +0.0029  +0.0020  +0.0013  -0.0007        -
+   16   0.0481  -0.0054   0.0410   0.0434   0.0427  +0.0024  +0.0025  +0.0015  -0.0011        -
+selected w = 1 (smallest validation gap with >= 95% of base validation NDCG)
+   test: d_adv +0.0000 [+0.0000, +0.0000] | d_dis +0.0000 [+0.0000, +0.0000] | d_all +0.0000 [+0.0000, +0.0000] | gap +0.0049 -> +0.0049  ->  NO NARROWING
+
+===== ease {'lam': 200.0}: advantaged group F, disadvantaged group M (validation)
+    w  val all  val gap   test F   test M test all      gap  closure    d_adv    d_dis LD share
+    1   0.0540  -0.0005   0.0405   0.0490   0.0466  +0.0086  +0.0000  +0.0000  +0.0000        -
+    2   0.0526  +0.0014   0.0395   0.0472   0.0450  +0.0078  +0.0008  -0.0010  -0.0018     100%
+    4   0.0504  +0.0032   0.0372   0.0461   0.0436  +0.0089  -0.0003  -0.0032  -0.0029        -
+    8   0.0491  +0.0042   0.0356   0.0432   0.0411  +0.0076  +0.0010  -0.0048  -0.0058     100%
+   16   0.0465  +0.0053   0.0318   0.0413   0.0387  +0.0095  -0.0010  -0.0086  -0.0077        -
+selected w = 1 (smallest validation gap with >= 95% of base validation NDCG)
+   test: d_adv +0.0000 [+0.0000, +0.0000] | d_dis +0.0000 [+0.0000, +0.0000] | d_all +0.0000 [+0.0000, +0.0000] | gap +0.0086 -> +0.0086  ->  NO NARROWING

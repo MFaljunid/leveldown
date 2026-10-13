@@ -1,0 +1,24 @@
+run folder: F:\php project\leveldown\results\ml-1m\20261012-075931_audit_reweight_activity_s2
+ml-1m: users=6040 items=3706  groups=activity (act0: 1510, act1: 1510, act2: 1510, act3: 1510)  random tie-breaking, FULL RANKING, NDCG@10
+
+== tuning base models (as run_gate.py)
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 1.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0497
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0500
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 100.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0355
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 1.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0454
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 10.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0457
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 100.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0438
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 1.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0392
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0385
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 100.0, 'iters': 10, 'seed': 2}: val NDCG@10 0.0417
+  -> selected ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10, 'seed': 2} (val NDCG@10 0.0500)
+
+===== ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10, 'seed': 2}: advantaged group act0, disadvantaged group act3 (validation)
+    w  val all  val gaptest act0test act1test act2test act3 test all      gap  closure    d_adv    d_dis LD share
+    1   0.0500  -0.0675   0.0820   0.0388   0.0285   0.0232   0.0431  -0.0588  +0.0000  +0.0000  +0.0000        -
+    2   0.0488  -0.0663   0.0772   0.0401   0.0299   0.0213   0.0421  -0.0559  +0.0029  -0.0048  -0.0018     100%
+    4   0.0468  -0.0613   0.0705   0.0386   0.0311   0.0212   0.0404  -0.0492  +0.0096  -0.0115  -0.0019     100%
+    8   0.0467  -0.0631   0.0706   0.0382   0.0298   0.0206   0.0398  -0.0501  +0.0088  -0.0113  -0.0026     100%
+   16   0.0463  -0.0618   0.0690   0.0388   0.0311   0.0197   0.0396  -0.0493  +0.0096  -0.0130  -0.0034     100%
+selected w = 2 (smallest validation gap with >= 95% of base validation NDCG)
+   test: d_adv -0.0048 [-0.0096, -0.0002] | d_dis -0.0018 [-0.0044, +0.0007] | d_all -0.0010 [-0.0027, +0.0008] | gap -0.0588 -> -0.0559  ->  LEVELING DOWN

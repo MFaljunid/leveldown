@@ -1,0 +1,38 @@
+run folder: F:\php project\leveldown\results\gowalla\20261011-202806_audit_reweight_activity
+gowalla: users=29858 items=40988  groups=activity (act0: 7465, act1: 7464, act2: 7465, act3: 7464)  random tie-breaking, FULL RANKING, NDCG@10
+
+== tuning base models (as run_gate.py)
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0389
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0388
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0192
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0432
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0433
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0407
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0456
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0457
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0453
+  -> selected ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10} (val NDCG@10 0.0457)
+  ease skipped: 40988 items > ease_max_items (12000)
+  knn {'k': 50}: val NDCG@10 0.0431
+  knn {'k': 200}: val NDCG@10 0.0448
+  -> selected knn {'k': 200} (val NDCG@10 0.0448)
+
+===== ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}: advantaged group act0, disadvantaged group act3 (validation)
+    w  val all  val gaptest act0test act1test act2test act3 test all      gap  closure    d_adv    d_dis LD share
+    1   0.0457  -0.0320   0.0515   0.0434   0.0408   0.0302   0.0415  -0.0212  +0.0000  +0.0000  +0.0000        -
+    2   0.0452  -0.0309   0.0497   0.0426   0.0398   0.0293   0.0403  -0.0204  +0.0008  -0.0018  -0.0009     100%
+    4   0.0448  -0.0292   0.0482   0.0415   0.0393   0.0290   0.0395  -0.0192  +0.0021  -0.0033  -0.0012     100%
+    8   0.0442  -0.0283   0.0475   0.0400   0.0387   0.0284   0.0387  -0.0191  +0.0021  -0.0039  -0.0018     100%
+   16   0.0437  -0.0282   0.0473   0.0392   0.0383   0.0284   0.0383  -0.0189  +0.0024  -0.0042  -0.0018     100%
+selected w = 16 (smallest validation gap with >= 95% of base validation NDCG)
+   test: d_adv -0.0042 [-0.0061, -0.0023] | d_dis -0.0018 [-0.0033, -0.0003] | d_all -0.0032 [-0.0040, -0.0023] | gap -0.0212 -> -0.0189  ->  LEVELING DOWN
+
+===== knn {'k': 200}: advantaged group act0, disadvantaged group act3 (validation)
+    w  val all  val gaptest act0test act1test act2test act3 test all      gap  closure    d_adv    d_dis LD share
+    1   0.0448  -0.0344   0.0519   0.0416   0.0372   0.0252   0.0390  -0.0267  +0.0000  +0.0000  +0.0000        -
+    2   0.0431  -0.0323   0.0499   0.0396   0.0356   0.0249   0.0375  -0.0251  +0.0017  -0.0020  -0.0003     100%
+    4   0.0417  -0.0297   0.0468   0.0388   0.0340   0.0248   0.0361  -0.0220  +0.0047  -0.0052  -0.0004     100%
+    8   0.0406  -0.0269   0.0447   0.0379   0.0335   0.0246   0.0352  -0.0201  +0.0066  -0.0072  -0.0006     100%
+   16   0.0399  -0.0247   0.0443   0.0367   0.0333   0.0247   0.0348  -0.0196  +0.0071  -0.0076  -0.0005     100%
+selected w = 2 (smallest validation gap with >= 95% of base validation NDCG)
+   test: d_adv -0.0020 [-0.0034, -0.0007] | d_dis -0.0003 [-0.0012, +0.0005] | d_all -0.0015 [-0.0021, -0.0008] | gap -0.0267 -> -0.0251  ->  LEVELING DOWN

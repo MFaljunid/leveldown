@@ -1,0 +1,24 @@
+run folder: F:\php project\leveldown\results\ml-100k\20261012-072720_audit_reweight_activity_s1
+ml-100k: users=943 items=1682  groups=activity (act0: 236, act1: 236, act2: 236, act3: 235)  random tie-breaking, FULL RANKING, NDCG@10
+
+== tuning base models (as run_gate.py)
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 1.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0756
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0814
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 100.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0392
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 1.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0764
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 10.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0761
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 100.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0563
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 1.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0698
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0743
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 100.0, 'iters': 10, 'seed': 1}: val NDCG@10 0.0784
+  -> selected ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10, 'seed': 1} (val NDCG@10 0.0814)
+
+===== ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10, 'seed': 1}: advantaged group act0, disadvantaged group act2 (validation)
+    w  val all  val gaptest act0test act1test act2test act3 test all      gap  closure    d_adv    d_dis LD share
+    1   0.0814  -0.0727   0.1330   0.0853   0.0679   0.0324   0.0797  -0.0651  +0.0000  +0.0000  +0.0000        -
+    2   0.0779  -0.0542   0.1312   0.0779   0.0616   0.0369   0.0769  -0.0696  -0.0046  -0.0018  -0.0063        -
+    4   0.0767  -0.0349   0.1261   0.0849   0.0514   0.0384   0.0752  -0.0748  -0.0097  -0.0068  -0.0165        -
+    8   0.0734  -0.0399   0.1250   0.0798   0.0482   0.0371   0.0726  -0.0767  -0.0117  -0.0080  -0.0196        -
+   16   0.0724  -0.0418   0.1192   0.0753   0.0459   0.0360   0.0691  -0.0733  -0.0082  -0.0138  -0.0220        -
+selected w = 2 (smallest validation gap with >= 95% of base validation NDCG)
+   test: d_adv -0.0018 [-0.0157, +0.0124] | d_dis -0.0063 [-0.0216, +0.0085] | d_all -0.0027 [-0.0100, +0.0048] | gap -0.0651 -> -0.0696  ->  NO NARROWING

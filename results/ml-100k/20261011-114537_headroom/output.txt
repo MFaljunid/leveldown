@@ -1,0 +1,61 @@
+run folder: F:\php project\leveldown\results\ml-100k\20261011-114537_headroom
+ml-100k: users=943 items=1682  target group 3 (235 users)
+
+== tuning (as run_gate.py)
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0615
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0626
+  ials {'dim': 64, 'alpha': 1.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0355
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0597
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0589
+  ials {'dim': 64, 'alpha': 5.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0475
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 1.0, 'iters': 10}: val NDCG@10 0.0521
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 10.0, 'iters': 10}: val NDCG@10 0.0583
+  ials {'dim': 64, 'alpha': 20.0, 'reg': 100.0, 'iters': 10}: val NDCG@10 0.0583
+  -> selected ials {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10} (val NDCG@10 0.0626)
+  ease {'lam': 50.0}: val NDCG@10 0.0638
+  ease {'lam': 200.0}: val NDCG@10 0.0670
+  ease {'lam': 500.0}: val NDCG@10 0.0671
+  ease {'lam': 2000.0}: val NDCG@10 0.0599
+  -> selected ease {'lam': 500.0} (val NDCG@10 0.0671)
+
+===== ials
+headroom diagnostic (VALIDATION NDCG@10): group: model vs ItemPop
+   group 0: 0.0890 vs 0.0355  
+   group 1: 0.0644 vs 0.0353  
+   group 2: 0.0525 vs 0.0364  
+   group 3: 0.0442 vs 0.0210  
+   beta 0.0  : validation NDCG@10 of group 3 = 0.0442
+   beta 0.25 : validation NDCG@10 of group 3 = 0.0420
+   beta 0.5  : validation NDCG@10 of group 3 = 0.0385
+   beta 1.0  : validation NDCG@10 of group 3 = 0.0284
+   beta 2.0  : validation NDCG@10 of group 3 = 0.0236
+   beta 4.0  : validation NDCG@10 of group 3 = 0.0236
+   -> selected beta 0.0 (on validation, group 3 only)
+TEST NDCG@10 by group (before -> after)
+   group 0: 0.0529 -> 0.0529
+   group 1: 0.0498 -> 0.0498
+   group 2: 0.0330 -> 0.0330
+   group 3: 0.0082 -> 0.0082
+   group 3 change +0.0000 [+0.0000, +0.0000] | overall 0.0360 -> 0.0360 (+0.0000)  ->  NOT SUPPORTED
+
+===== ease
+headroom diagnostic (VALIDATION NDCG@10): group: model vs ItemPop
+   group 0: 0.0914 vs 0.0355  
+   group 1: 0.0696 vs 0.0353  
+   group 2: 0.0608 vs 0.0364  
+   group 3: 0.0465 vs 0.0210  
+   beta 0.0  : validation NDCG@10 of group 3 = 0.0465
+   beta 0.25 : validation NDCG@10 of group 3 = 0.0391
+   beta 0.5  : validation NDCG@10 of group 3 = 0.0337
+   beta 1.0  : validation NDCG@10 of group 3 = 0.0323
+   beta 2.0  : validation NDCG@10 of group 3 = 0.0251
+   beta 4.0  : validation NDCG@10 of group 3 = 0.0234
+   -> selected beta 0.0 (on validation, group 3 only)
+TEST NDCG@10 by group (before -> after)
+   group 0: 0.0425 -> 0.0425
+   group 1: 0.0554 -> 0.0554
+   group 2: 0.0379 -> 0.0379
+   group 3: 0.0102 -> 0.0102
+   group 3 change +0.0000 [+0.0000, +0.0000] | overall 0.0365 -> 0.0365 (+0.0000)  ->  NOT SUPPORTED
+
+== L2 DECISION: iALS NOT SUPPORTED | EASE NOT SUPPORTED

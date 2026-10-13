@@ -1,0 +1,19 @@
+\begin{tabular}{lllrrrrrr}
+\toprule
+ & & & \multicolumn{3}{c}{ORACLE (test labels)} & \multicolumn{3}{c}{LEAK-FREE} \\
+\cmidrule(lr){4-6}\cmidrule(lr){7-9}
+Dataset & Attr. & Model & $\Delta$better & $\Delta$worse & $\Delta$all & $\Delta$better & $\Delta$worse & $\Delta$all \\
+\midrule
+ML-100K & activity & iALS & -0.0056$^{*}$ & +0.0625 & -0.0021 & -0.0514$^{*}$ & +0.0000 & -0.0488$^{*}$ \\
+ML-100K & activity & EASE & -0.0011 & +0.0417 & +0.0011 & -0.0302$^{*}$ & +0.0000 & -0.0286$^{*}$ \\
+ML-100K & gender & iALS & -0.0037 & +0.0000 & -0.0011 & +0.0000 & +0.0000 & +0.0000 \\
+ML-100K & gender & EASE & -0.0037 & +0.0015 & +0.0000 & -0.0164$^{*}$ & +0.0000 & -0.0117$^{*}$ \\
+ML-1M & activity & iALS & -0.0017$^{*}$ & +0.0165$^{*}$ & -0.0008 & -0.0248$^{*}$ & +0.0000 & -0.0235$^{*}$ \\
+ML-1M & activity & EASE & -0.0014$^{*}$ & +0.0330$^{*}$ & +0.0003 & -0.0335$^{*}$ & +0.0000 & -0.0318$^{*}$ \\
+ML-1M & gender & iALS & -0.0012$^{*}$ & +0.0035$^{*}$ & +0.0002 & +0.0000 & +0.0000 & +0.0000 \\
+ML-1M & gender & EASE & -0.0012$^{*}$ & +0.0059$^{*}$ & +0.0008 & +0.0000 & +0.0000 & +0.0000 \\
+Gowalla & activity & iALS & -0.0027$^{*}$ & +0.0227$^{*}$ & -0.0014$^{*}$ & -0.0220$^{*}$ & +0.0000 & -0.0209$^{*}$ \\
+Gowalla & activity & ItemKNN & -0.0086$^{*}$ & +0.0120$^{*}$ & -0.0076$^{*}$ & -0.0258$^{*}$ & +0.0000 & -0.0245$^{*}$ \\
+\bottomrule
+\multicolumn{9}{l}{\footnotesize $^{*}$ paired bootstrap 95\% CI excludes 0.}\\
+\end{tabular}

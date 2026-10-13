@@ -1,0 +1,16 @@
+dataset,intervention,attribute,backbone,seeds,selected,d_adv,d_dis,d_all,dis_up_significant,dis_down_significant,verdicts,max_ld_share,min_ld_share
+ml-100k,audit_gapreg,activity,bpr,3,"0,0.05,0",-0.0025 ± 0.0043,-0.0011 ± 0.0019,-0.0015 ± 0.0026,0,0,NO NARROWING; NO SIGNIFICANT EFFECT; NO NARROWING,100%,82%
+ml-100k,audit_gapreg,gender,bpr,1,0,+0.0000,+0.0000,+0.0000,0,0,NO NARROWING,0%,0%
+ml-100k,audit_reweight,activity,ease,1,1,+0.0000,+0.0000,+0.0000,0,0,NO NARROWING,-,-
+ml-100k,audit_reweight,activity,ials,3,"1,2,1",-0.0006 ± 0.0010,-0.0021 ± 0.0036,-0.0009 ± 0.0016,0,0,NO NARROWING; NO NARROWING; NO NARROWING,100%,100%
+ml-100k,audit_reweight,gender,ease,1,4,-0.0041,-0.0002,-0.0030,0,0,NO NARROWING,-,-
+ml-100k,audit_reweight,gender,ials,1,1,+0.0000,+0.0000,+0.0000,0,0,NO NARROWING,-,-
+ml-1m,audit_gapreg,activity,bpr,3,"0,0,0",+0.0000 ± 0.0000,+0.0000 ± 0.0000,+0.0000 ± 0.0000,0,0,NO NARROWING; NO NARROWING; NO NARROWING,100%,92%
+ml-1m,audit_gapreg,gender,bpr,1,0.1,-0.0004,+0.0024,+0.0004,0,0,NO NARROWING,100%,100%
+ml-1m,audit_reweight,activity,ease,1,1,+0.0000,+0.0000,+0.0000,0,0,NO NARROWING,100%,100%
+ml-1m,audit_reweight,activity,ials,3,"8,2,2",-0.0078 ± 0.0043,-0.0019 ± 0.0014,-0.0017 ± 0.0017,0,0,LEVELING DOWN; LEVELING DOWN; LEVELING DOWN,100%,98%
+ml-1m,audit_reweight,gender,ease,1,1,+0.0000,+0.0000,+0.0000,0,0,NO NARROWING,100%,100%
+ml-1m,audit_reweight,gender,ials,1,1,+0.0000,+0.0000,+0.0000,0,0,NO NARROWING,100%,100%
+gowalla,audit_gapreg,activity,bpr,3,"0.1,0.2,0.2",-0.0050 ± 0.0023,-0.0013 ± 0.0002,-0.0020 ± 0.0007,0,1,LEVELING DOWN; LEVELING DOWN; LEVELING DOWN,100%,100%
+gowalla,audit_reweight,activity,ials,3,"16,8,16",-0.0042 ± 0.0003,-0.0017 ± 0.0007,-0.0029 ± 0.0005,0,2,LEVELING DOWN; LEVELING DOWN; LEVELING DOWN,100%,100%
+gowalla,audit_reweight,activity,knn,1,2,-0.0020,-0.0003,-0.0015,0,0,LEVELING DOWN,100%,100%

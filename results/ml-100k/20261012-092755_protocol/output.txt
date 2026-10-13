@@ -1,0 +1,31 @@
+run folder: F:\php project\leveldown\results\ml-100k\20261012-092755_protocol
+
+===== tie-breaking: item  (ml-100k: users=943 items=1682)
+  iALS selected {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}
+  -- grouping activity
+     model   protocol     overall     act0     act1     act2     act3   worst   best      gap  rel.gap
+     ials    full          0.0360   0.0529   0.0498   0.0330   0.0082    act3   act0   0.0447     544%
+     ials    sampled99     0.3140   0.4124   0.3586   0.3004   0.1839    act3   act0   0.2285     124%
+     itempop full          0.0249   0.0231   0.0181   0.0286   0.0298    act1   act3   0.0117      64%
+     itempop sampled99     0.1705   0.1518   0.1688   0.2001   0.1613    act0   act2   0.0483      32%
+  -- grouping gender
+     model   protocol     overall        F        M   worst   best      gap  rel.gap
+     ials    full          0.0360   0.0350   0.0364       F      M   0.0014       4%
+     ials    sampled99     0.3140   0.3261   0.3090       M      F   0.0171       6%
+     itempop full          0.0249   0.0167   0.0283       F      M   0.0116      70%
+     itempop sampled99     0.1705   0.1624   0.1738       F      M   0.0114       7%
+
+===== tie-breaking: random  (ml-100k: users=943 items=1682)
+  iALS selected {'dim': 64, 'alpha': 1.0, 'reg': 10.0, 'iters': 10}
+  -- grouping activity
+     model   protocol     overall     act0     act1     act2     act3   worst   best      gap  rel.gap
+     ials    full          0.0781   0.1258   0.0839   0.0621   0.0405    act3   act0   0.0853     211%
+     ials    sampled99     0.3768   0.4925   0.4261   0.3562   0.2319    act3   act0   0.2606     112%
+     itempop full          0.0399   0.0385   0.0356   0.0430   0.0426    act1   act2   0.0074      21%
+     itempop sampled99     0.2328   0.2163   0.2504   0.2621   0.2022    act3   act2   0.0599      30%
+  -- grouping gender
+     model   protocol     overall        F        M   worst   best      gap  rel.gap
+     ials    full          0.0781   0.0819   0.0765       M      F   0.0054       7%
+     ials    sampled99     0.3768   0.3951   0.3694       M      F   0.0258       7%
+     itempop full          0.0399   0.0336   0.0425       F      M   0.0089      26%
+     itempop sampled99     0.2328   0.2206   0.2378       F      M   0.0171       8%
